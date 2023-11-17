@@ -1,0 +1,19 @@
+<div id="login-page-container">
+  <form [formGroup]="loginFormGroup">
+    <input
+      type="text"
+      name="username"
+      id="username"
+      placeholder="Nutzername"
+      formControlName="username"
+    />
+    <input
+      type="password"
+      name="password"
+      id="password"
+      placeholder="Passwort"
+      formControlName="password"
+    />
+    <button (click)="login()">Login</button>
+  </form>
+</div>
