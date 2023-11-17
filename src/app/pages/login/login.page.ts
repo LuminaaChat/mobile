@@ -1,4 +1,4 @@
-import { NgFor } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import {
   FormControl,
@@ -12,7 +12,7 @@ import { AuthService } from '../../services/auth/auth.service';
 @Component({
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
-  imports: [ReactiveFormsModule, NgFor],
+  imports: [ReactiveFormsModule, CommonModule],
   standalone: true,
 })
 export class LoginPage {

@@ -1,1 +1,10 @@
 <h1>Welcome to the new Chat App</h1>
+
+<form [formGroup]="messageFormGroup">
+  <input type="text" placeholder="Nachricht" formControlName="message" />
+  <button [disabled]="!messageFormGroup.valid" (click)="send()">Senden</button>
+</form>
+
+<div>
+  <p *ngFor="let message of messages">{{ message }}</p>
+</div>
