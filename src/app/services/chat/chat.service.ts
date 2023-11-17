@@ -16,6 +16,14 @@ export class ChatService {
     this.subToEvents();
   }
 
+  sendMessage(msg: string) {
+    if (this.socket.connected) {
+      this.socket.emit("hello", msg);
+    } else {
+      console.log("no socket found");
+    }
+  }
+
   private subToEvents() {
     this.socket.on("connect", () => {
       console.log('connected:', this.socket.id);
