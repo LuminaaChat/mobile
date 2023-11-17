@@ -7,7 +7,7 @@ export class ChatService {
   newChat$ = new Subject<string>();
   private socket: Socket;
   constructor() {
-    this.socket = io('http://10.38.8.77:3000/', { autoConnect: false });
+    this.socket = io('http://10.38.40.34:3000/', { autoConnect: false });
   }
 
   connectToSocket(username: string) {
