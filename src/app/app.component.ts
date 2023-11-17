@@ -11,19 +11,4 @@ import { io } from "socket.io-client";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'hello world';
-  socket: any;
-  constructor() {
-    this.socket = io('http://10.38.8.77:3000/');
-    this.socket.on("connect", () => {
-      console.log(this.socket.id);
-    });
-    this.socket.on("chat", (getMsg: string) => {
-      console.log(getMsg);
-    });
-  }
-
-  sendMsg() {
-    this.socket.emit("hello", this.title);
-  }
 }
