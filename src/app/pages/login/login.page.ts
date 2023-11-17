@@ -1,6 +1,11 @@
 import { NgFor } from '@angular/common';
-import { Component, OnInit, inject } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Component, inject } from '@angular/core';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth/auth.service';
 
@@ -10,23 +15,23 @@ import { AuthService } from '../../services/auth/auth.service';
   imports: [ReactiveFormsModule, NgFor],
   standalone: true,
 })
-export class LoginPage implements OnInit {
+export class LoginPage {
   private readonly authService = inject(AuthService);
   private readonly router = inject(Router);
 
-  protected loginFormGroup!: FormGroup;
+  protected loginFormGroup = new FormGroup({
+    username: new FormControl('', [Validators.required]),
+    password: new FormControl(''),
+  });
 
   protected messages = new Array<string>();
 
-  ngOnInit(): void {
-    this.loginFormGroup = new FormGroup({
-      username: new FormControl(''),
-      password: new FormControl(''),
-    });
-  }
-
   login(): void {
-    // this.authService.login(new UserEntity());
+    const username = this.loginFormGroup.controls.username.value || '';
+    const password = this.loginFormGroup.controls.password.value || '';
+
+    this.authService.login(username, password);
+
     this.router.navigateByUrl('home', { replaceUrl: true });
   }
 }

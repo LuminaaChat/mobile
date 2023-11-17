@@ -14,6 +14,6 @@
       placeholder="Passwort"
       formControlName="password"
     />
-    <button (click)="login()">Login</button>
+    <button [disabled]="!loginFormGroup.valid" (click)="login()">Login</button>
   </form>
 </div>
