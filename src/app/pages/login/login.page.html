@@ -1,3 +1,15 @@
+<section class="flex flex-col content-space-evenly">
+  <section class="flex flex-col gap-1">
+    <h2>Login</h2>
+    <label for="loginName">Login name</label>
+    <input id="loginName" name="loginName" type="text" />
+  </section>
+  <section class="flex flex-col gap-1">
+    <button (click)="forgotPassword()">Passwort vergessen</button>
+    <button (click)="continueLogin()">Weiter</button>
+  </section>
+</section>
+<!-- 
 <div id="login-page-container">
   <form [formGroup]="loginFormGroup">
     <input
@@ -16,4 +28,4 @@
     />
     <button [disabled]="!loginFormGroup.valid" (click)="login()">Login</button>
   </form>
-</div>
+</div> -->
