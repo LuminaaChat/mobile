@@ -10,11 +10,14 @@
   --positive: #009834;
   --warning: #c70030;
   --disabled: #0000003d;
-  --on-primary-background: var(--secondary);
-  --on-secondary-ultra-light-background: #ffffff;
+  --background: var(--secondary);
+  --height-emphasis: #ffffff26;
+  --on-primary: var(--secondary);
+  --on-secondary-ultra-light: #ffffff;
   --on-background: #ffffff;
   --on-background-medium-emphasis: #ffffff80;
   --on-background-highlight: var(--primary);
-  --on-height-emphasis-background: #ffffff26;
+  --on-height-emphasis: #ffffff;
+  --on-height-emphasis-placeholder: #ffffff26;
   --on-disabled: #ffffff80;
 }

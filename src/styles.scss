@@ -26,10 +26,20 @@ body {
   height: 100svh;
 }
 
+// button
 .btn-primary {
-  @apply px-4 py-3 border rounded-xl  bg-yellow-400 border-yellow-500;
+  @apply px-4 py-3 rounded-xl bg-primary text-on-primary font-bold;
+}
+
+// input
+.input-container {
+  @apply flex flex-col gap-1;
 }
 
 .input {
-  @apply px-4 py-4 border-none rounded-xl bg-blend-darken;
+  @apply px-4 py-4 border-none rounded-xl bg-height-emphasis text-on-height-emphasis;
+}
+
+.input-label {
+  @apply flex flex-col gap-1 text-primary;
 }
