@@ -16,6 +16,6 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GroupListItemComponent {
-  @Input() label = '';
+  @Input() label?: string = '';
   @Output() itemClicked = new EventEmitter();
 }
