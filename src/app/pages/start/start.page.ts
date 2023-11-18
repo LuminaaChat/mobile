@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class StartPage {
   constructor(private readonly router: Router) {}
 
-  login() {
+  startLogin() {
     console.log('Start login Process');
     this.router.navigate(['login']);
   }

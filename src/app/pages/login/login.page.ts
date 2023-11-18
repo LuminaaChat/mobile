@@ -7,6 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+
 import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
@@ -26,12 +27,21 @@ export class LoginPage {
 
   protected messages = new Array<string>();
 
-  login(): void {
-    const username = this.loginFormGroup.controls.username.value || '';
-    const password = this.loginFormGroup.controls.password.value || '';
+  // login(): void {
+  //   const username = this.loginFormGroup.controls.username.value || '';
+  //   const password = this.loginFormGroup.controls.password.value || '';
 
-    this.authService.login(username, password);
+  //   this.authService.login(username, password);
 
-    this.router.navigateByUrl('home', { replaceUrl: true });
+  //   this.router.navigateByUrl('home', { replaceUrl: true });
+  // }
+
+  forgotPassword() {
+    console.log('triggered password forgotten flow');
+  }
+
+  continueLogin() {
+    this.authService.login('', '');
+    this.router.navigate(['/set-pin']);
   }
 }
