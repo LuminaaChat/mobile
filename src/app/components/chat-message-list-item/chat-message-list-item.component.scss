@@ -3,12 +3,12 @@ div.message-list-item-container {
   width: 100%;
   padding: 1rem;
 
-  &.me {
+  &.other {
     grid-template-columns: 20% 80%;
     grid-template-areas: "avatar message";
   }
 
-  &.other {
+  &.me {
     grid-template-columns: 80% 20%;
     grid-template-areas: "message avatar";
   }
@@ -27,8 +27,8 @@ div.message-list-item-container {
 
     div.avatar {
       background-color: darkgray;
-      height: 4rem;
-      width: 4rem;
+      height: 2rem;
+      width: 2rem;
       border-radius: 50%;
     }
   }

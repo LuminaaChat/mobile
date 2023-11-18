@@ -1,3 +1,7 @@
-<app-chat-message-list [chat]="chat()"></app-chat-message-list>
-<input type="text" id="chatinput">
-<app-button label="Senden" (click)="send(chat()?.id || '')"></app-button>
+<div>
+  <app-chat-message-list [chat]="chat()"></app-chat-message-list>
+</div>
+<div class="flex flex-row">
+  <input placeholder="Nachricht" type="text" id="chatinput">
+  <app-button label="Senden" (click)="send(chat()?.id || '')"></app-button>
+</div>
