@@ -34,7 +34,9 @@ export const routes: Routes = [
   {
     path: 'settings',
     loadComponent: () =>
-      import('./pages/home/home.page').then((page) => page.HomePage),
+      import('./pages/settings/settings.page').then(
+        (page) => page.SettingsPage
+      ),
     canActivate: [isAuthenticated],
   },
   {

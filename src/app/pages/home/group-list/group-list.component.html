@@ -1,0 +1,7 @@
+<div class="flex flex-row">
+  @for (group of groups; track $index) {
+  <app-group-list-item
+    (itemClicked)="itemClicked.emit(group)"
+  ></app-group-list-item>
+  }
+</div>

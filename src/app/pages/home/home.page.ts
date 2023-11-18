@@ -1,20 +1,24 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
+import { Group } from '../../../../chatapi';
 import { AuthService } from '../../services/auth/auth.service';
 import { ChatService } from '../../services/chat/chat.service';
+import { GroupListComponent } from './group-list/group-list.component';
 
 @Component({
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
-  imports: [ReactiveFormsModule, CommonModule, HttpClientModule],
+  imports: [ReactiveFormsModule, CommonModule, GroupListComponent],
   standalone: true,
 })
 export class HomePage implements OnInit {
-  readonly auth = inject(AuthService);
-  readonly chatService = inject(ChatService);
+  private readonly router = inject(Router);
+
+  private readonly auth = inject(AuthService);
+  private readonly chatService = inject(ChatService);
 
   groups = this.chatService.groups;
   user = this.auth.user;
@@ -25,5 +29,15 @@ export class HomePage implements OnInit {
     // if (!isAuthorizedEmplopyee(this.auth.user())) {
     // } else {
     // }
+  }
+
+  goToGroup(group: Group) {
+    this.router.navigate(['/group'], {
+      queryParams: { groupId: group.groupId },
+    });
+  }
+
+  goToSettings() {
+    this.router.navigate(['/settings']);
   }
 }
