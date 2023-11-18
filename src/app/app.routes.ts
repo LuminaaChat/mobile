@@ -1,7 +1,13 @@
 import { Routes } from '@angular/router';
+
 import { isLoggedInGuard } from './shared/guard/is-logged-in.guard';
 
 export const routes: Routes = [
+  {
+    path: 'start',
+    loadComponent: () =>
+      import('./pages/start/start.page').then((page) => page.StartPage),
+  },
   {
     path: 'home',
     loadComponent: () =>
