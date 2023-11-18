@@ -2,7 +2,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "colors.scss";
+@import "colors";
 
 :root {
   font-family: Arial, Helvetica, sans-serif;
@@ -27,7 +27,7 @@ body {
 }
 
 .btn-primary {
-  @apply px-4 py-2 border rounded-xl w-full bg-yellow-400 border-yellow-500;
+  @apply px-4 py-3 border rounded-xl w-full bg-yellow-400 border-yellow-500;
 }
 
 .input {
