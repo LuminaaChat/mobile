@@ -14,6 +14,13 @@ export const routes: Routes = [
       import('./pages/login/login.page').then((page) => page.LoginPage),
   },
   {
+    path: 'forgot-password',
+    loadComponent: () =>
+      import('./pages/forgot-password/forgot-password.page').then(
+        (page) => page.ForgotPasswordPage
+      ),
+  },
+  {
     path: 'set-pin',
     loadComponent: () =>
       import('./pages/set-pin/set-pin.page').then((page) => page.SetPinPage),
