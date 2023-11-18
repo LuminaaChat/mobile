@@ -9,6 +9,7 @@ div.message-list-item-container {
   display: grid;
   width: 100%;
   padding: 1rem;
+
   &.me {
     grid-template-columns: var(--percentage-avatar) var(--percentage-message);
     grid-template-areas: "avatar message";
@@ -27,6 +28,7 @@ div.message-list-item-container {
       }
     }
   }
+
   &.other {
     grid-template-columns: var(--percentage-message) var(--percentage-avatar);
     grid-template-areas: "message avatar";
@@ -73,7 +75,7 @@ div.message-list-item-container {
     grid-area: avatar;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
 
     div.avatar {
       background-color: darkgray;
