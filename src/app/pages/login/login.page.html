@@ -1,20 +1,20 @@
 <section class="flex flex-col justify-between h-full">
   <section class="w-full flex justify-center">
-    <div class="bg-white w-32 h-52 rounded-xl"></div>
+    <div class="bg-white w-40 h-52 rounded-b-xl"></div>
   </section>
 
   <section class="flex flex-col gap-8 p-4">
     <section class="flex justify-center">
       <h1 class="text-white text-4xl font-bold">Login</h1>
     </section>
-    <div class="flex flex-col gap-16">
+    <div class="flex flex-col gap-8">
       <div class="flex flex-col gap-4">
-        <div class="flex flex-col gap-1">
-          <label class="text-white" for="loginName">Login name</label>
+        <div class="input-container">
+          <label class="input-label" for="loginName">Login name</label>
           <input class="input" id="loginName" name="loginName" type="text" />
         </div>
-        <div class="flex flex-col gap-1">
-          <label class="text-white" for="loginPassword">Passwort</label>
+        <div class="input-container">
+          <label class="input-label" for="loginPassword">Passwort</label>
           <input
             class="input"
             id="loginPassword"
@@ -23,13 +23,13 @@
           />
         </div>
       </div>
-      <div class="flex flex-col justify-center gap-3">
-        <button class="btn-primary w-full" (click)="continueLogin()">
+      <div class="flex flex-col justify-center items-center gap-3">
+        <button class="btn-primary w-3/4" (click)="continueLogin()">
           Login
         </button>
         <a
           [routerLink]="'/forgot-password'"
-          class="text-yellow-400 text-center font-bold"
+          class="text-primary text-center font-bold"
         >
           Passwort vergessen?</a
         >
@@ -38,8 +38,8 @@
   </section>
 
   <section class="p-4 w-full flex justify-center gap-1">
-    <a class="text-yellow-400">Impressum</a
+    <a class="text-primary font-bold">Impressum</a
     ><label class="text-white opacity-75 px-2">|</label
-    ><a class="text-yellow-400">Datenschutzbestimmungen</a>
+    ><a class="text-primary font-bold">Datenschutzbestimmungen</a>
   </section>
 </section>

@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { CommonModule, Location } from '@angular/common';
+import { Component, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 
 @Component({
@@ -9,9 +9,15 @@ import { Router, RouterModule } from '@angular/router';
   styleUrl: './set-pin.page.scss',
 })
 export class SetPinPage {
-  constructor(private readonly router: Router) {}
+  private readonly router: Router = inject(Router);
+  private readonly location: Location = inject(Location);
+
   confirmPin() {
     console.log('pin confirmed');
     this.router.navigate(['pin-input']);
+  }
+
+  back() {
+    this.location.back();
   }
 }
