@@ -46,11 +46,14 @@ div.message-list-item-container {
       max-width: fit-content;
 
       div.referred-message-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
         border: 1px solid black;
         margin: 1rem 1rem 0 1rem;
         width: fit-content;
         max-width: 100%;
-        padding: 0.5rem;
+        padding: 1rem;
 
         p.referred-message-author {
           font-weight: bold;
@@ -58,7 +61,8 @@ div.message-list-item-container {
           padding: 0;
         }
 
-        div.referred-message {
+        p.referred-message {
+          margin: 0;
         }
       }
 
