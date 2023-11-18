@@ -46,7 +46,7 @@ export const routes: Routes = [
   {
     path: 'chat',
     loadComponent: () =>
-      import('./pages/home/home.page').then((page) => page.HomePage),
+      import('./pages/chat/chat.page').then((page) => page.ChatPage),
     canActivate: [isAuthenticated],
   },
   {
