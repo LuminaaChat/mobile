@@ -1,7 +1,7 @@
-import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { CommonModule, Location } from '@angular/common';
+import { Component, OnInit, inject } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 import { Group } from '../../../../chatapi';
 import { AuthService } from '../../services/auth/auth.service';
@@ -11,12 +11,18 @@ import { GroupListComponent } from './group-list/group-list.component';
 @Component({
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
-  imports: [ReactiveFormsModule, CommonModule, GroupListComponent],
+  imports: [
+    ReactiveFormsModule,
+    CommonModule,
+    GroupListComponent,
+    RouterModule,
+  ],
   standalone: true,
 })
 export class HomePage implements OnInit {
   private readonly router = inject(Router);
 
+  private readonly location = inject(Location);
   private readonly auth = inject(AuthService);
   private readonly chatService = inject(ChatService);
 
@@ -37,5 +43,9 @@ export class HomePage implements OnInit {
 
   goToSettings() {
     this.router.navigate(['/settings']);
+  }
+
+  back() {
+    this.location.back();
   }
 }

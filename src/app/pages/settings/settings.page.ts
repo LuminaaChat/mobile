@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Location } from '@angular/common';
+import { Component, inject } from '@angular/core';
 
 @Component({
   templateUrl: './settings.page.html',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   standalone: true,
 })
 export class SettingsPage {
-  constructor() {}
+  private readonly location: Location = inject(Location);
+
+  back() {
+    this.location.back();
+  }
 }

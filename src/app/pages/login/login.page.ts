@@ -34,7 +34,10 @@ export class LoginPage {
   }
 
   continueLogin() {
-    this.authService.login('', '');
+    const username = (document.getElementById('loginName') as HTMLInputElement).value || Math.floor(Math.random() * 10000).toString()
+    const password = (document.getElementById('loginPassword') as HTMLInputElement).value || ''
+
+    this.authService.login(username, password);
     this.router.navigate(['/set-pin']);
   }
 }

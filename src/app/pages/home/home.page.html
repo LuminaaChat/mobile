@@ -1,11 +1,33 @@
+<section class="w-full h-full flex flex-col">
+  <section class="p-4 flex justify-end">
+    <a routerLink="/settings" class="btn-primary">⚙️</a>
+  </section>
+
+  <section class="p-4 flex flex-row items-center gap-8">
+    <h1 class="text-white font-bold text-2xl">
+      Hallo {{user()?.displayName}}!
+    </h1>
+  </section>
+
+  <section class="p-4">
+    <app-group-list
+      [groups]="groups()"
+      (itemClicked)="goToGroup($event)"
+    ></app-group-list>
+  </section>
+</section>
+<!-- 
 <section class="flex flex-col flex-space-between">
   <section>
     <h1>Hallo {{user()?.displayName}}</h1>
   </section>
   <section>
-    <app-group-list [groups]="groups()" (itemClicked)="goToGroup($event)"></app-group-list>
+    <app-group-list
+      [groups]="groups()"
+      (itemClicked)="goToGroup($event)"
+    ></app-group-list>
   </section>
   <section>
     <button (click)="goToSettings()">Einstellungen</button>
   </section>
-</section>
+</section> -->
