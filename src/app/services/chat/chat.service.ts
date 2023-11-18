@@ -1,15 +1,13 @@
 import { io, Socket } from 'socket.io-client';
 import { ChatEntity } from 'src/app/shared/entity/chat/chat.entity';
-
 import { Injectable, signal, WritableSignal } from '@angular/core';
-
 import { Group } from '../../../../chatapi';
 import { MessageEntity } from '../../shared/entity/chat/message.entity';
 
 export enum CHAT_EVENT {
   CONNECT = 'connect',
-  SEND_MSG = 'chat-out',
-  ON_RECEIVE_MSG = 'chat-in',
+  SEND_MSG = 'chat_message',
+  ON_RECEIVE_MSG = 'chat_message',
 }
 
 @Injectable({ providedIn: 'root' })
@@ -44,7 +42,7 @@ export class ChatService {
     console.warn('Endpoint for groups currently missing');
     const ret = [
       {
-        groupChats: [],
+        groupChats: [{ chatId: 'test1' }, { chatId: 'test2' }],
         groupId: crypto.randomUUID(),
         groupName: 'WG I',
         users: [],
@@ -65,9 +63,9 @@ export class ChatService {
   }
 
   // socket gedöhnse
-  sendMessageByChatId(chatId: string, message: string, author: string) {
+  sendMessageByChatId(msg: MessageEntity) {
     if (this.socket.connected) {
-      this.socket.emit(CHAT_EVENT.SEND_MSG, { message, chatId, author });
+      this.socket.emit(CHAT_EVENT.SEND_MSG, msg);
     } else {
       console.log('no socket found');
       throw 'not implemented yet';

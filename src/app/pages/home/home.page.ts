@@ -32,9 +32,7 @@ export class HomePage implements OnInit {
   }
 
   goToGroup(group: Group) {
-    this.router.navigate(['/group'], {
-      queryParams: { groupId: group.groupId },
-    });
+    this.router.navigate(['/group', group.groupId]);
   }
 
   goToSettings() {

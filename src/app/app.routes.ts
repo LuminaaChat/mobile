@@ -47,6 +47,14 @@ export const routes: Routes = [
     canActivate: [isAuthenticated],
   },
   {
+    path: 'group/:groupId',
+    loadComponent: () =>
+      import('./pages/group/group.page').then(
+        (page) => page.GroupPage
+      ),
+    canActivate: [isAuthenticated],
+  },
+  {
     path: 'chats',
     loadComponent: () =>
       import('./pages/home/home.page').then((page) => page.HomePage),
