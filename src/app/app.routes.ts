@@ -27,13 +27,18 @@ export const routes: Routes = [
       import('./pages/login/login.page').then((page) => page.LoginPage),
   },
   {
+    path: 'chat',
+    loadComponent: () =>
+      import('./pages/chat/chat.page').then((page) => page.ChatPage),
+  },
+  {
     path: '**',
-    redirectTo: 'components',
+    redirectTo: 'chat',
     pathMatch: 'full',
   },
   {
     path: '',
-    redirectTo: 'components',
+    redirectTo: 'chat',
     pathMatch: 'full',
   },
 ];
