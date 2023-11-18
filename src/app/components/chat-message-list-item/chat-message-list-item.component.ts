@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { MessageEntity } from '../../shared/entity/message/message.entity';
 
 @Component({
   selector: 'app-chat-message-list-item',
@@ -10,9 +11,8 @@ import { Component, Input } from '@angular/core';
 })
 export class ChatMessageListItemComponent {
   @Input()
-  message =
-    'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis minima explicabo atque, doloremque, sapiente assumenda earum eos fugit suscipit qui eius voluptatem nam quaerat dolores amet placeat dolorum. Inventore, dolorem! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis minima explicabo atque, doloremque, sapiente assumenda earum eos fugit suscipit qui eius voluptatem nam quaerat dolores amet placeat dolorum. Inventore, dolorem! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis minima explicabo atque, doloremque, sapiente assumenda earum eos fugit suscipit qui eius voluptatem nam quaerat dolores amet placeat dolorum. Inventore, dolorem!';
+  message!: MessageEntity;
 
-  @Input()
-  author: 'me' | 'other' = 'other';
+  //   @Input()
+  //   author: 'me' | 'other' = 'other';
 }
