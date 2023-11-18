@@ -59,12 +59,17 @@ export const routes: Routes = [
 
   {
     path: '',
-    redirectTo: 'start',
+    redirectTo: 'chat',
     pathMatch: 'full',
   },
   {
+    path: 'chat',
+    loadComponent: () =>
+      import('./pages/chat/chat.page').then((page) => page.ChatPage),
+  },
+  {
     path: '**',
-    redirectTo: 'components',
+    redirectTo: 'chat',
     pathMatch: 'full',
   },
 ];
