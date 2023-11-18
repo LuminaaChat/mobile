@@ -14,7 +14,7 @@ export class PinInputComponent {
 
   confirmPin() {
     console.log('verify user pin');
-    this.router.navigate(['/home']);
+    this.router.navigate(['/home'], { replaceUrl: true });
   }
 
   back() {
