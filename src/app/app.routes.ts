@@ -44,7 +44,7 @@ export const routes: Routes = [
     canActivate: [isAuthenticated],
   },
   {
-    path: 'chat',
+    path: 'chat/:chatId',
     loadComponent: () =>
       import('./pages/chat/chat.page').then((page) => page.ChatPage),
     canActivate: [isAuthenticated],
@@ -56,16 +56,10 @@ export const routes: Routes = [
         (page) => page.ComponentPage
       ),
   },
-
   {
     path: '',
     redirectTo: 'chat',
     pathMatch: 'full',
-  },
-  {
-    path: 'chat',
-    loadComponent: () =>
-      import('./pages/chat/chat.page').then((page) => page.ChatPage),
   },
   {
     path: '**',

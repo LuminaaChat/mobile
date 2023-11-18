@@ -13,11 +13,21 @@ export enum CHAT_EVENT {
 
 @Injectable({ providedIn: 'root' })
 export class ChatService {
-  // newChat$ = new Subject<string>();
   // chatList: ChatListEntity[] = [];
   // chats: ChatEntity[] = [];
 
-  chats: WritableSignal<Array<ChatEntity>> = signal([]);
+  chats: WritableSignal<Array<ChatEntity>> = signal([
+    {
+      id: 'test1',
+      participants: ['Dennis', 'Clemens'],
+      messages: [{ message: 'hallo', author: 'Dennis' }, { message: 'wie gehts?', author: 'Dennis' }, { message: 'hallo', author: 'Clemens' }]
+    },
+    {
+      id: 'test2',
+      participants: ['Dennis', 'Clemens'],
+      messages: [{ message: 'hallo2', author: 'Dennis' }, { message: 'wie gehts?2', author: 'Dennis' }, { message: 'hallo 2', author: 'Clemens' }]
+    },
+  ]);
 
   private socket: Socket;
 
@@ -28,7 +38,7 @@ export class ChatService {
   connectToSocket(username: string) {
     this.socket.auth = { username };
     this.socket.connect();
-    // this.subToEvents();
+    this.subscribeToMyChats();
   }
 
   getMyChatList() {
@@ -37,9 +47,9 @@ export class ChatService {
   }
 
   // socket gedöhnse
-  sendMessageByChatId(chatId: string, msg: string) {
+  sendMessageByChatId(chatId: string, message: string, author: string) {
     if (this.socket.connected) {
-      this.socket.emit(CHAT_EVENT.SEND_MSG, { msg, chatId });
+      this.socket.emit(CHAT_EVENT.SEND_MSG, { message, chatId, author });
     } else {
       console.log('no socket found');
       throw 'not implemented yet';
@@ -64,9 +74,6 @@ export class ChatService {
         chats[index].messages.push(msg);
         return chats;
       });
-
-      // console.log('chat', getMsg);
-      // this.newChat$.next(getMsg);
     });
 
     // this.socket.on('chatJoined', (newChat: ChatEntity) => {

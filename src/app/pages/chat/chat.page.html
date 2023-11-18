@@ -1,1 +1,8 @@
-<app-chat-message-list></app-chat-message-list>
+@for (chat of chat(); track chat) {
+<app-chat-message-list [chat]="chat"></app-chat-message-list>
+<input type="text" id="chatinput">
+<app-button label="Senden" (click)="send(chat.id)"></app-button>
+
+} @empty {
+chat not found
+}
