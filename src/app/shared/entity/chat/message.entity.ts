@@ -1,6 +1,6 @@
 export class MessageEntity {
   chatId?: string;
-  author?: string;
+  authorId?: string;
   message?: string;
   timestamp?: Date;
 }

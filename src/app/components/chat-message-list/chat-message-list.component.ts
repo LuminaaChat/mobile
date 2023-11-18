@@ -16,7 +16,7 @@ export class ChatMessageListComponent {
   username = 'Dennis';
 
   @Input()
-  chat!: ChatEntity
+  chat?: ChatEntity
 
   constructor() { }
 }

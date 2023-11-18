@@ -3,7 +3,7 @@
     <h1>Hallo {{user()?.displayName}}</h1>
   </section>
   <section>
-    <app-group-list [groups]="groups()"></app-group-list>
+    <app-group-list [groups]="groups()" (itemClicked)="goToGroup($event)"></app-group-list>
   </section>
   <section>
     <button (click)="goToSettings()">Einstellungen</button>

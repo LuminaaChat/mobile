@@ -1,0 +1,10 @@
+<h1>Group: {{groupId}}</h1>
+@for (groupChat of group()?.groupChats; track groupChat.chatId) {
+<p>
+  <button (click)="goToChatWithId(groupChat.chatId)">
+    {{groupChat.chatId}}
+  </button>
+</p>
+} @empty {
+Keine Chats gefunden
+}
