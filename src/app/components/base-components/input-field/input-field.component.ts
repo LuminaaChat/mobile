@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, booleanAttribute } from '@angular/core';
 
 @Component({
   selector: 'app-input-field',
@@ -8,7 +8,11 @@ import { Component, Input } from '@angular/core';
 })
 export class InputFieldComponent {
   @Input()
-  type: 'text' | 'password' = 'text';
+  label = 'Label';
 
-  constructor() {}
+  @Input({ transform: booleanAttribute })
+  disable = false;
+
+  @Input()
+  type: 'text' | 'password' = 'text';
 }

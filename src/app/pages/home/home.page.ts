@@ -6,7 +6,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { ButtonComponent } from '../../components/button/button.component';
+import { ButtonComponent } from '../../components/base-components/button/button.component';
 import { AuthService } from '../../services/auth/auth.service';
 import { ChatService } from '../../services/chat/chat.service';
 

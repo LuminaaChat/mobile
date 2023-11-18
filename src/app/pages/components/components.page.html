@@ -1,1 +1,18 @@
-<app-button label="Test Button"></app-button>
+<div id="component-page-container">
+  <h1>Components Page</h1>
+  <div>
+    <h2>Button Component</h2>
+    <app-button label="Test Button"></app-button>
+    <app-button label="Test Button" disable></app-button>
+  </div>
+  <div>
+    <h2>Input Field</h2>
+    <app-input-field label="Test Input"></app-input-field>
+    <app-input-field label="Test Input" disable></app-input-field>
+  </div>
+  <div style="background-color: lightgray">
+    <h2>Chat Bubble</h2>
+    <app-chat-message-list-item author="me"></app-chat-message-list-item>
+    <app-chat-message-list-item></app-chat-message-list-item>
+  </div>
+</div>
