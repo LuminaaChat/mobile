@@ -25,7 +25,7 @@ export class HomePage implements OnInit {
 
   protected messages = new Array<string>();
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
     const userName = this.authService.userName;
@@ -42,6 +42,20 @@ export class HomePage implements OnInit {
     const message = this.messageFormGroup.controls.message.value;
     if (message) {
       this.chatService.sendMessage(message);
+    }
+  }
+
+  sendMessageInChat(): void {
+    const message = this.messageFormGroup.controls.message.value?.split(',');
+    if (message && message?.length > 1) {
+      this.chatService.sendMessageInChat(message[1], message[0]);
+    }
+  }
+
+  joinChat(): void {
+    const users = this.messageFormGroup.controls.message.value?.split(',');
+    if (users && users?.length > 1) {
+      this.chatService.openChat(users);
     }
   }
 }
