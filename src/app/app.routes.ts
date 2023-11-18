@@ -9,18 +9,25 @@ export const routes: Routes = [
     canActivate: [isLoggedInGuard],
   },
   {
+    path: 'components',
+    loadComponent: () =>
+      import('./pages/components/components.page').then(
+        (page) => page.ComponentPage
+      ),
+  },
+  {
     path: 'login',
     loadComponent: () =>
       import('./pages/login/login.page').then((page) => page.LoginPage),
   },
   {
     path: '**',
-    redirectTo: 'login',
+    redirectTo: 'components',
     pathMatch: 'full',
   },
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'components',
     pathMatch: 'full',
   },
 ];

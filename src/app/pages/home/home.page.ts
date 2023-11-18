@@ -6,13 +6,14 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { ButtonComponent } from '../../components/button/button.component';
 import { AuthService } from '../../services/auth/auth.service';
 import { ChatService } from '../../services/chat/chat.service';
 
 @Component({
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, ButtonComponent],
   standalone: true,
 })
 export class HomePage implements OnInit {
@@ -25,7 +26,7 @@ export class HomePage implements OnInit {
 
   protected messages = new Array<string>();
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
     const userName = this.authService.userName;

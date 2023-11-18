@@ -2,9 +2,15 @@
 
 <form [formGroup]="messageFormGroup">
   <input type="text" placeholder="Nachricht" formControlName="message" />
-  <button [disabled]="!messageFormGroup.valid" (click)="sendMessageInChat()">In Gruppe Senden</button>
-  <button [disabled]="!messageFormGroup.valid" (click)="send()">An alle Senden</button>
-  <button [disabled]="!messageFormGroup.valid" (click)="joinChat()">join</button>
+  <button [disabled]="!messageFormGroup.valid" (click)="sendMessageInChat()">
+    In Gruppe Senden
+  </button>
+  <button [disabled]="!messageFormGroup.valid" (click)="send()">
+    An alle Senden
+  </button>
+  <button [disabled]="!messageFormGroup.valid" (click)="joinChat()">
+    join
+  </button>
 </form>
 
 <div>
