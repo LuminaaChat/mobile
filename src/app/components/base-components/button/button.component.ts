@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, booleanAttribute } from '@angular/core';
 
 @Component({
   selector: 'app-button',
@@ -8,7 +8,11 @@ import { Component, Input } from '@angular/core';
 })
 export class ButtonComponent {
   @Input()
-  label!: string;
+  label = '';
 
-  constructor() {}
+  @Input({ transform: booleanAttribute })
+  disable = false;
+
+  @Input()
+  icon = '';
 }
