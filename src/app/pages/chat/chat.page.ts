@@ -11,7 +11,7 @@ import { ChatService } from 'src/app/services/chat/chat.service';
   standalone: true,
   imports: [ChatMessageListComponent, ButtonComponent, InputFieldComponent]
 })
-export class ChatPage implements OnInit {
+export class ChatPage {
   private readonly chatService = inject(ChatService)
   private readonly authService = inject(AuthService)
 
@@ -19,18 +19,10 @@ export class ChatPage implements OnInit {
 
   chat = computed(() => this.chatService.chats().find(chat => chat.id === this.chatId))
 
-  constructor() {
-    this.chatService.connectToSocket('Dennis');
-  }
-
-  ngOnInit(): void {
-    console.log(this.chatId);
-  }
-
   send(chatId: string) {
     if (document) {
       const message = (document.getElementById('chatinput') as HTMLInputElement).value || ''
-      this.chatService.sendMessageByChatId({ chatId, message, authorId: this.authService.user()?.displayName || 'Hallo Ich bin kein User' })
+      this.chatService.sendMessageByChatId({ chatId, message, authorId: this.authService.user()?.displayName })
     }
   }
 }
