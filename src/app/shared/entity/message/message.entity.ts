@@ -1,12 +1,11 @@
-import { MessageAuthorType } from '../../types/message-author.type';
 import { MessageStateType } from '../../types/message-state.type';
 import { ReferredMessageEntity } from './referred-message.entity';
 
 export class MessageEntity {
   chatId?: string;
   message: string;
-  state: MessageStateType;
-  author: MessageAuthorType;
+  state?: MessageStateType;
+  author: string;
   timestamp?: Date;
   referredMessage?: ReferredMessageEntity;
   constructor(entity: MessageEntity) {

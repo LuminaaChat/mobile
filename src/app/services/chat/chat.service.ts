@@ -3,7 +3,7 @@ import { ChatEntity } from 'src/app/shared/entity/chat/chat.entity';
 
 import { Injectable, signal, WritableSignal } from '@angular/core';
 
-import { MessageEntity } from '../../shared/entity/chat/message.entity';
+import { MessageEntity } from '../../shared/entity/message/message.entity';
 
 export enum CHAT_EVENT {
   CONNECT = 'connect',
