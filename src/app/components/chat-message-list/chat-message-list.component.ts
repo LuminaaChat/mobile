@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { ChatMessageListItemComponent } from '../chat-message-list-item/chat-message-list-item.component';
 import { ChatEntity } from 'src/app/shared/entity/chat/chat.entity';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-chat-message-list',
@@ -12,8 +13,9 @@ import { ChatEntity } from 'src/app/shared/entity/chat/chat.entity';
   ]
 })
 export class ChatMessageListComponent {
+  private readonly authService = inject(AuthService)
 
-  username = 'Dennis';
+  user = this.authService.user;
 
   @Input()
   chat?: ChatEntity

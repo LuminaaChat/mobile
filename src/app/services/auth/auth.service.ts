@@ -11,8 +11,8 @@ export class AuthService {
   login(username: string, password: string): void {
     console.log(`${username} logging in with password ${password}`);
     const result = {
-      displayName: 'Peter',
-      userId: crypto.randomUUID(),
+      displayName: username,
+      userId: 'sichereuserid',
       userType: UserType.Employee,
     } as User;
     this.isLoggedIn.set(!!result);
