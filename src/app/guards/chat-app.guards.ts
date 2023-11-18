@@ -1,10 +1,10 @@
 import { inject } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { User } from '../../../chatapi';
 import { AuthService } from '../services/auth/auth.service';
-import { UserEntity } from '../shared/entity/user/user.entity';
 
-export const isAuthenticated = (user?: UserEntity) => {
+export const isAuthenticated = (user?: User) => {
   const auth = inject(AuthService);
   const router = inject(Router);
   if (!auth.isLoggedIn()) {
@@ -14,15 +14,15 @@ export const isAuthenticated = (user?: UserEntity) => {
     return true;
   }
 };
-export const isAuthorizedEmplopyee = (user?: UserEntity) => {
+export const isAuthorizedEmplopyee = (user?: User) => {
   return !!user;
 };
-export const isAuthorizedFamilyMember = (user?: UserEntity) => {
+export const isAuthorizedFamilyMember = (user?: User) => {
   return !!user;
 };
-export const isAuthorizedParent = (user?: UserEntity) => {
+export const isAuthorizedParent = (user?: User) => {
   return !!user;
 };
-export const isAuthorizedChild = (user?: UserEntity) => {
+export const isAuthorizedChild = (user?: User) => {
   return !!user;
 };

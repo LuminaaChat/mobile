@@ -1,1 +1,4 @@
-<h1>Home Here</h1>
+<h1>Hallo {{auth.user()?.displayName}}</h1>
+@for (group of groups(); track $index) {
+<div>BOX für {{group.groupName}}</div>
+}
