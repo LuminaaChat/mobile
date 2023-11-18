@@ -1,31 +1,40 @@
-<section class="flex flex-col content-space-evenly">
-  <section class="flex flex-col gap-1">
-    <h2>Login</h2>
-    <label for="loginName">Login name</label>
-    <input id="loginName" name="loginName" type="text" />
+<section class="flex flex-col justify-between h-full">
+  <section class="w-full flex justify-center">
+    <div class="bg-white w-32 h-52 rounded-xl"></div>
   </section>
-  <section class="flex flex-col gap-1">
-    <button (click)="forgotPassword()">Passwort vergessen</button>
-    <button (click)="continueLogin()">Weiter</button>
+
+  <section class="flex flex-col gap-8 p-4">
+    <section class="flex justify-center">
+      <h1 class="text-white text-4xl font-bold">Login</h1>
+    </section>
+    <div class="flex flex-col gap-16">
+      <div class="flex flex-col gap-4">
+        <div class="flex flex-col gap-1">
+          <label class="text-white" for="loginName">Login name</label>
+          <input class="input" id="loginName" name="loginName" type="text" />
+        </div>
+        <div class="flex flex-col gap-1">
+          <label class="text-white" for="loginPassword">Passwort</label>
+          <input
+            class="input"
+            id="loginPassword"
+            name="loginPassword"
+            type="password"
+          />
+        </div>
+      </div>
+      <div class="flex flex-col justify-center gap-3">
+        <button class="btn-primary" (click)="continueLogin()">Login</button>
+        <a class="text-yellow-400 text-center font-bold">
+          Passwort vergessen?</a
+        >
+      </div>
+    </div>
+  </section>
+
+  <section class="p-4 w-full flex justify-center gap-1">
+    <a class="text-yellow-400">Impressum</a
+    ><label class="text-white opacity-75 px-2">|</label
+    ><a class="text-yellow-400">Datenschutzbestimmungen</a>
   </section>
 </section>
-<!-- 
-<div id="login-page-container">
-  <form [formGroup]="loginFormGroup">
-    <input
-      type="text"
-      name="username"
-      id="username"
-      placeholder="Nutzername"
-      formControlName="username"
-    />
-    <input
-      type="password"
-      name="password"
-      id="password"
-      placeholder="Passwort"
-      formControlName="password"
-    />
-    <button [disabled]="!loginFormGroup.valid" (click)="login()">Login</button>
-  </form>
-</div> -->

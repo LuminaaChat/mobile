@@ -1,11 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import {
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../../services/auth/auth.service';
@@ -20,10 +15,8 @@ export class LoginPage {
   private readonly authService = inject(AuthService);
   private readonly router = inject(Router);
 
-  protected loginFormGroup = new FormGroup({
-    username: new FormControl('', [Validators.required]),
-    password: new FormControl(''),
-  });
+  userName = '';
+  password = '';
 
   protected messages = new Array<string>();
 

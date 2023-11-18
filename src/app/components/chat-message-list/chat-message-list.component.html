@@ -1,5 +1,5 @@
 @for (msg of chat.messages; track msg) {
-<app-chat-message-list-item [message]="msg.message"
+<app-chat-message-list-item [message]="msg.message || ''"
   [author]="username === msg.author ? 'me' : 'other'"></app-chat-message-list-item>
 } @empty {
 Empty chat
