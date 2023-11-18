@@ -56,20 +56,21 @@ export const routes: Routes = [
         (page) => page.ComponentPage
       ),
   },
-
-  {
-    path: '',
-    redirectTo: 'chat',
-    pathMatch: 'full',
-  },
   {
     path: 'chat',
     loadComponent: () =>
       import('./pages/chat/chat.page').then((page) => page.ChatPage),
+    canActivate: [isAuthenticated],
   },
   {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full',
+  },
+
+  {
     path: '**',
-    redirectTo: 'chat',
+    redirectTo: 'start',
     pathMatch: 'full',
   },
 ];
