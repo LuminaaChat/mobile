@@ -9,12 +9,12 @@
     </section>
     <div class="flex flex-col gap-8">
       <div class="flex flex-col gap-4">
-        <div class="flex flex-col gap-1">
-          <label class="text-white" for="loginName">Login name</label>
+        <div class="input-container">
+          <label class="input-label" for="loginName">Login name</label>
           <input class="input" id="loginName" name="loginName" type="text" />
         </div>
-        <div class="flex flex-col gap-1">
-          <label class="text-white" for="loginPassword">Passwort</label>
+        <div class="input-container">
+          <label class="input-label" for="loginPassword">Passwort</label>
           <input
             class="input"
             id="loginPassword"
@@ -29,7 +29,7 @@
         </button>
         <a
           [routerLink]="'/forgot-password'"
-          class="text-yellow-400 text-center font-bold"
+          class="text-primary text-center font-bold"
         >
           Passwort vergessen?</a
         >
@@ -38,8 +38,8 @@
   </section>
 
   <section class="p-4 w-full flex justify-center gap-1">
-    <a class="text-yellow-400">Impressum</a
+    <a class="text-primary font-bold">Impressum</a
     ><label class="text-white opacity-75 px-2">|</label
-    ><a class="text-yellow-400">Datenschutzbestimmungen</a>
+    ><a class="text-primary font-bold">Datenschutzbestimmungen</a>
   </section>
 </section>
