@@ -1,5 +1,4 @@
 import { Component, Input, OnInit, computed, inject } from '@angular/core';
-import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
 import { ButtonComponent } from 'src/app/components/base-components/button/button.component';
 import { InputFieldComponent } from 'src/app/components/base-components/input-field/input-field.component';
 import { ChatMessageListComponent } from 'src/app/components/chat-message-list/chat-message-list.component';
@@ -16,7 +15,7 @@ export class ChatPage implements OnInit {
 
   @Input() chatId!: string
 
-  chat = computed(() => this.chatService.chats().filter(chat => chat.id === this.chatId))
+  chat = computed(() => this.chatService.chats().find(chat => chat.id === this.chatId))
 
   constructor() {
     this.chatService.connectToSocket('Dennis');
@@ -28,8 +27,8 @@ export class ChatPage implements OnInit {
 
   send(chatId: string) {
     if (document) {
-      const msg = (document.getElementById('chatinput') as HTMLInputElement).value || ''
-      this.chatService.sendMessageByChatId(chatId, msg, 'Dennis')
+      const message = (document.getElementById('chatinput') as HTMLInputElement).value || ''
+      this.chatService.sendMessageByChatId({ chatId, message, authorId: 'Dennis' })
     }
   }
 }
