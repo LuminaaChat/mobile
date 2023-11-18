@@ -1,0 +1,21 @@
+.list-item-container {
+
+  .info-container {
+    display: inline-block;
+  }
+
+  .image-container {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: red;
+    color: green;
+    border-radius: 20px;
+    text-align: center;
+
+    p {
+      font-family: serif;
+      vertical-align: middle;
+    }
+  }
+}
