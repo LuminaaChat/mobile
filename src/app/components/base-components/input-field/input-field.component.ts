@@ -8,7 +8,7 @@ import { Component, Input, booleanAttribute } from '@angular/core';
 })
 export class InputFieldComponent {
   @Input()
-  label = 'Label';
+  label = 'Input Field';
 
   @Input({ transform: booleanAttribute })
   disable = false;
