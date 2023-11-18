@@ -1,21 +1,55 @@
 .list-item-container {
 
+  $contact-image-sidelength: 40px;
+
+  background-color: lightblue;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+
+  p {
+    background-color: coral;
+    margin: 0;
+  }
+
   .info-container {
-    display: inline-block;
+    width: 100%;
+    flex: flex-grow;
+
+    p.title {
+      font-size: 15px;
+    }
+
+    p.subtitle {
+      font-size: 12px;
+    }
   }
 
   .image-container {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
+    width: $contact-image-sidelength;
+    height: $contact-image-sidelength;
     background-color: red;
     color: green;
-    border-radius: 20px;
+    border-radius: $contact-image-sidelength / 2;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     p {
-      font-family: serif;
       vertical-align: middle;
+      flex: flex-grow;
+      justify-content: end;
     }
+  }
+
+  .accessory-information {
+    font-size: 12;
+  }
+
+  .chevron {
+    flex: flex-grow;
   }
 }
