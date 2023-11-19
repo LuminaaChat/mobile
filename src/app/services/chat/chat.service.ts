@@ -1,6 +1,8 @@
-import { Injectable, signal, WritableSignal } from '@angular/core';
 import { io, Socket } from 'socket.io-client';
 import { ChatEntity } from 'src/app/shared/entity/chat/chat.entity';
+
+import { Injectable, signal, WritableSignal } from '@angular/core';
+
 import { Group } from '../../../../chatapi';
 import { MessageEntity } from '../../shared/entity/message/message.entity';
 
@@ -32,7 +34,10 @@ export class ChatService {
     console.warn('Endpoint for groups currently missing');
     const ret = [
       {
-        groupChats: [{ chatId: 'test1' }, { chatId: 'test2' }],
+        groupChats: [
+          { chatId: 'test1', groupChatName: 'test1' },
+          { chatId: 'test2', groupChatName: 'test2' },
+        ],
         groupId: '123',
         groupName: 'WG I',
         users: [],
