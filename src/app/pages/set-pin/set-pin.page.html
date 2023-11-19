@@ -1,6 +1,6 @@
 <section class="w-full h-full flex flex-col gap-8">
   <section class="p-4 flex flex-row items-center gap-8">
-    <button class="btn-primary" (click)="back()">&lt;</button>
+    <button class="btn-primary" (click)="back()"><span class="material-icons">chevron_left</span></button>
     <h1 class="text-white font-bold text-2xl">4-stellige PIN vergeben</h1>
   </section>
   <section class="p-4 flex gap-8 flex-col">
@@ -22,12 +22,7 @@
     <div class="flex flex-col gap-4">
       <div class="flex flex-col gap-1">
         <label class="text-primary" for="pin-repeat">Pin wiederholen</label>
-        <input
-          class="input"
-          id="pin-repeat"
-          name="pin-repeat"
-          type="pin-repeat"
-        />
+        <input class="input" id="pin-repeat" name="pin-repeat" type="pin-repeat" />
       </div>
     </div>
 

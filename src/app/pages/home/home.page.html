@@ -1,6 +1,8 @@
 <section class="w-full h-full flex flex-col">
   <section class="p-4 flex justify-end">
-    <a routerLink="/settings" class="btn-primary">⚙️</a>
+    <a routerLink="/settings" class="btn-primary">
+      <span class="material-icons">settings</span>
+    </a>
   </section>
 
   <section class="p-4 flex flex-row items-center gap-8">
@@ -10,13 +12,10 @@
   </section>
 
   <section class="p-4">
-    <app-group-list
-      [groups]="groups()"
-      (itemClicked)="goToGroup($event)"
-    ></app-group-list>
+    <app-group-list [groups]="groups()" (itemClicked)="goToGroup($event)"></app-group-list>
   </section>
 </section>
-<!-- 
+<!--
 <section class="flex flex-col flex-space-between">
   <section>
     <h1>Hallo {{user()?.displayName}}</h1>

@@ -1,4 +1,5 @@
-import { Component, Input, OnInit, computed, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, Input, OnInit, computed, inject } from '@angular/core';
 import { ButtonComponent } from 'src/app/components/base-components/button/button.component';
 import { InputFieldComponent } from 'src/app/components/base-components/input-field/input-field.component';
 import { ChatMessageListComponent } from 'src/app/components/chat-message-list/chat-message-list.component';
@@ -9,7 +10,8 @@ import { ChatService } from 'src/app/services/chat/chat.service';
   templateUrl: './chat.page.html',
   styleUrls: ['./chat.page.scss'],
   standalone: true,
-  imports: [ChatMessageListComponent, ButtonComponent, InputFieldComponent]
+  imports: [CommonModule, ChatMessageListComponent, ButtonComponent, InputFieldComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ChatPage {
   private readonly chatService = inject(ChatService)
