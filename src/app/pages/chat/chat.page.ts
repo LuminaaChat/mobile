@@ -16,6 +16,8 @@ import {
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
+import { SubHeaderComponent } from '../../components/sub-header/sub-header.component';
+
 @Component({
   templateUrl: './chat.page.html',
   styleUrls: ['./chat.page.scss'],
@@ -26,6 +28,7 @@ import { FormsModule } from '@angular/forms';
     ButtonComponent,
     InputFieldComponent,
     FormsModule,
+    SubHeaderComponent,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

@@ -1,11 +1,9 @@
-<section class="relative h-full p-2">
-  <section
-    class="p-4 flex flex-row items-center gap-8 sticky top-0 bg-background z-50"
-  >
-    <button class="btn-primary" (click)="back()">
-      <span class="material-icons">chevron_left</span>
-    </button>
-  </section>
+<section class="relative h-full">
+  <app-sub-header
+    [title]="chat()?.id"
+    class="sticky top-0 z-50"
+  ></app-sub-header>
+
   <app-chat-message-list [chat]="chat()"></app-chat-message-list>
 
   <form
