@@ -22,7 +22,6 @@ export class GroupPage {
   );
 
   goToChatWithId(chatId: string) {
-    debugger;
     this.router.navigate(['/chat', chatId]);
   }
 }

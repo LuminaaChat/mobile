@@ -35,8 +35,8 @@ export class ChatService {
     const ret = [
       {
         groupChats: [
-          { chatId: 'test1', groupChatName: 'test1' },
-          { chatId: 'test2', groupChatName: 'test2' },
+          { groupChatId: 'test1', groupChatName: 'test1' },
+          { groupChatId: 'test2', groupChatName: 'test2' },
         ],
         groupId: '123',
         groupName: 'WG I',

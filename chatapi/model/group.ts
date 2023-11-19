@@ -29,5 +29,5 @@ export interface Group {
   /**
    * List of all group chats related to this group
    */
-  groupChats?: Array<{ chatId: string; groupChatName?: string }>;
+  groupChats?: Array<{ groupChatId: string; groupChatName?: string }>;
 }
