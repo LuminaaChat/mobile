@@ -2,9 +2,11 @@ import { CommonModule, Location } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 
+import { SubHeaderComponent } from '../../components/sub-header/sub-header.component';
+
 @Component({
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, SubHeaderComponent],
   templateUrl: './set-pin.page.html',
   styleUrl: './set-pin.page.scss',
 })
