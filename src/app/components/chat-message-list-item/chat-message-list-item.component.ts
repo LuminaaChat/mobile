@@ -1,5 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  inject,
+} from '@angular/core';
+import { AuthService } from '../../services/auth/auth.service';
+import { MessageEntity } from '../../shared/entity/message/message.entity';
 
 @Component({
   selector: 'app-chat-message-list-item',
@@ -10,10 +17,13 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ChatMessageListItemComponent {
-  @Input()
-  message =
-    'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis minima explicabo atque, doloremque, sapiente assumenda earum eos fugit suscipit qui eius voluptatem nam quaerat dolores amet placeat dolorum. Inventore, dolorem! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis minima explicabo atque, doloremque, sapiente assumenda earum eos fugit suscipit qui eius voluptatem nam quaerat dolores amet placeat dolorum. Inventore, dolorem! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis minima explicabo atque, doloremque, sapiente assumenda earum eos fugit suscipit qui eius voluptatem nam quaerat dolores amet placeat dolorum. Inventore, dolorem!';
+  private readonly authService = inject(AuthService);
+
+  user = this.authService.user;
 
   @Input()
-  author: 'me' | 'other' = 'other';
+  message!: MessageEntity;
+
+  //   @Input()
+  //   author: 'me' | 'other' = 'other';
 }

@@ -1,6 +1,23 @@
-<div class="message-list-item-container" [ngClass]="author">
+<div
+  class="message-list-item-container"
+  [ngClass]="user()?.displayName === message.authorId ? 'me' : 'other'"
+>
   <div class="message-container">
-    <p class="message">{{ message }}</p>
+    <div class="message">
+      @if (message.referredMessage) {
+      <div class="referred-message-container">
+        <p class="referred-message-author">
+          {{ message.referredMessage.author }}
+        </p>
+        <p class="referred-message">{{ message.referredMessage.message }}</p>
+      </div>
+      }
+      <p class="message-content">{{ message.message }}</p>
+      @if (user()?.displayName === message.authorId) {
+      <div class="message-state"></div>
+      <!-- <span class="material-symbol">check</span> -->
+      }
+    </div>
   </div>
   <div class="avatar-container">
     <div class="avatar"></div>

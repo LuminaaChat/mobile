@@ -1,22 +1,78 @@
+:host {
+  --icon-size: 1rem;
+  --avatar-size: 2rem;
+  --percentage-avatar: calc(var(--avatar-size) + 4rem);
+  --percentage-message: calc(100% - var(--percentage-avatar));
+}
+
 div.message-list-item-container {
   display: grid;
   width: 100%;
   padding: 1rem;
 
   &.other {
-    grid-template-columns: 20% 80%;
+    grid-template-columns: var(--percentage-avatar) var(--percentage-message);
     grid-template-areas: "avatar message";
+
+    div.message-container {
+      align-items: flex-end;
+
+      div.message-state {
+        background-color: darkgray;
+        height: var(--icon-size);
+        width: var(--icon-size);
+        border-radius: 50%;
+        position: absolute;
+        bottom: 0.25rem;
+        right: 0.25rem;
+      }
+    }
   }
 
   &.me {
-    grid-template-columns: 80% 20%;
+    grid-template-columns: var(--percentage-message) var(--percentage-avatar);
     grid-template-areas: "message avatar";
   }
 
   div.message-container {
+    display: flex;
+    flex-direction: column;
     grid-area: message;
-    border: 1px solid darkgray;
+    position: relative;
     width: 100%;
+
+    div.message {
+      border: 1px solid darkgray;
+      max-width: fit-content;
+
+      div.referred-message-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        border: 1px solid black;
+        margin: 1rem 1rem 0 1rem;
+        width: fit-content;
+        max-width: 100%;
+        padding: 1rem;
+
+        p.referred-message-author {
+          font-weight: bold;
+          margin: 0;
+          padding: 0;
+        }
+
+        p.referred-message {
+          margin: 0;
+        }
+      }
+
+      p.message-content {
+        padding: 1rem;
+        width: fit-content;
+        max-width: 100%;
+        margin: 0;
+      }
+    }
   }
 
   div.avatar-container {
@@ -27,8 +83,8 @@ div.message-list-item-container {
 
     div.avatar {
       background-color: darkgray;
-      height: 2rem;
-      width: 2rem;
+      height: var(--avatar-size);
+      width: var(--avatar-size);
       border-radius: 50%;
     }
   }

@@ -14,7 +14,7 @@ import {
 })
 export class InputFieldComponent {
   @Input()
-  label = 'Label';
+  label = 'Input Field';
 
   @Input({ transform: booleanAttribute })
   disable = false;

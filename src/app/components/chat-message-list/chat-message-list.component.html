@@ -1,9 +1,6 @@
 <div class="text-sm font-bold text-white">
   @for (msg of chat?.messages; track msg) {
-  {{msg.authorId}}
-  <app-chat-message-list-item [message]="msg.message || ''"
-    [author]="user()?.displayName === msg.authorId ? 'me' : 'other'"></app-chat-message-list-item>
-  } @empty {
-  Empty chat
-  }
+  {{ msg.authorId }}
+  <app-chat-message-list-item [message]="msg"></app-chat-message-list-item>
+  } @empty { Empty chat }
 </div>

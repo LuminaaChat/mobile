@@ -1,7 +1,7 @@
-import { MessageEntity } from './message.entity';
+import { MessageEntity } from '../message/message.entity';
 
 export class ChatEntity {
   participants: string[] = [];
   id: string = 'default Room';
-  messages: MessageEntity[] = []
+  messages: MessageEntity[] = [];
 }
