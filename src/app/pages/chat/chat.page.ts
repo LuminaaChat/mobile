@@ -26,7 +26,6 @@ import {
     ButtonComponent,
     InputFieldComponent,
   ],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ChatPage implements OnInit {
   @ViewChild('msgbox', { static: true })
