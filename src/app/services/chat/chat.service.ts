@@ -58,18 +58,18 @@ export class ChatService {
         id: 'test1',
         participants: ['Dennis', 'Clemens'],
         messages: [
-          { message: 'hallo', authorId: 'Dennis' },
-          { message: 'wie gehts?', authorId: 'Dennis' },
-          { message: 'hallo', authorId: 'Clemens' },
+          { message: 'hallo', authorId: 'Dennis', timestamp: new Date() },
+          { message: 'wie gehts?', authorId: 'Dennis', timestamp: new Date() },
+          { message: 'hallo', authorId: 'Clemens', timestamp: new Date() },
         ],
       },
       {
         id: 'test2',
         participants: ['Dennis', 'Clemens'],
         messages: [
-          { message: 'hallo2', authorId: 'Dennis' },
-          { message: 'wie gehts?2', authorId: 'Dennis' },
-          { message: 'hallo 2', authorId: 'Clemens' },
+          { message: 'hallo2', authorId: 'Dennis', timestamp: new Date() },
+          { message: 'wie gehts?2', authorId: 'Dennis', timestamp: new Date() },
+          { message: 'hallo 2', authorId: 'Clemens', timestamp: new Date() },
         ],
       },
     ];
@@ -94,7 +94,7 @@ export class ChatService {
       this.chats.update((chats) => {
         const index = chats.findIndex((c: ChatEntity) => c.id === msg.chatId);
         chats[index].messages.push(msg);
-        return chats;
+        return JSON.parse(JSON.stringify(chats));
       });
     });
   }
