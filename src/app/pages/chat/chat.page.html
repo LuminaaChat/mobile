@@ -1,6 +1,6 @@
 <div class="relative h-full p-2">
   <app-chat-message-list [chat]="chat()"></app-chat-message-list>
-  <div class="flex flex-row justify-center absolute bottom-2 left-0 right-0 gap-2 w-full px-2">
+  <div class="flex flex-row justify-center fixed bottom-0 left-0 right-0 gap-2 w-full p-2 bg-background">
     <input placeholder="Nachricht" type="text" id="chatinput" class="input flex-grow" #msgbox />
     <button (click)="send(chat()?.id || '')" class="btn-primary">
       <span class="material-icons">send</span>
