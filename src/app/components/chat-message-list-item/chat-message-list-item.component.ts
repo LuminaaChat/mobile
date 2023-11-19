@@ -1,5 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  inject,
+} from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
 import { MessageEntity } from '../../shared/entity/message/message.entity';
 
@@ -9,6 +14,7 @@ import { MessageEntity } from '../../shared/entity/message/message.entity';
   styleUrls: ['./chat-message-list-item.component.scss'],
   imports: [CommonModule],
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ChatMessageListItemComponent {
   private readonly authService = inject(AuthService);
