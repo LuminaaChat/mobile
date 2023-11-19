@@ -1,1 +1,20 @@
-<p>group-chat-list-item works!</p>
+<button
+  (click)="itemClicked.emit()"
+  name="container"
+  class="w-full flex flex-row justify-stretch gap-4"
+>
+  <div name="icon">
+    <app-icon>👻</app-icon>
+  </div>
+  <div name="content" class="grow flex flex-col gap-2">
+    <h2 class="text-white text-xl">
+      {{ chat?.groupChatName }}
+    </h2>
+  </div>
+  <div name="details" class="flex flex-col gap-2">
+    <label class="text-white opacity-75">01.01</label>
+  </div>
+  <div name="action" class="flex flex-col justify-center items-center">
+    <label class="font-bold text-primary text-4xl">&gt;</label>
+  </div>
+</button>

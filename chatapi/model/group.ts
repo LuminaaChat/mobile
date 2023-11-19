@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 /**
  * Group for living group or case or whatever
  */
@@ -30,6 +29,5 @@ export interface Group {
   /**
    * List of all group chats related to this group
    */
-  groupChats?: Array<{ chatId: string }>;
+  groupChats?: Array<{ groupChatId: string; groupChatName?: string }>;
 }
-

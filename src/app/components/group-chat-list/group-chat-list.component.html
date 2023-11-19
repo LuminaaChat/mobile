@@ -1,1 +1,11 @@
-<p>group-chat-list works!</p>
+<div class="w-full h-full flex flex-col gap-4 p-4">
+  <h1 class="text-white text-xl">{{ title }}</h1>
+  <div class="flex flex-col gap-4">
+    @for (chat of chats; track $index) {
+    <app-group-chat-list-item
+      (itemClicked)="chatItemSelected.emit(chat.groupChatId)"
+      [chat]="chat"
+    ></app-group-chat-list-item>
+    }
+  </div>
+</div>
