@@ -1,7 +1,4 @@
-<div
-  class="message-list-item-container"
-  [ngClass]="user()?.displayName === message.authorId ? 'me' : 'other'"
->
+<div class="message-list-item-container" [ngClass]="user()?.displayName === message.authorId ? 'me' : 'other'">
   <div class="message-container">
     <div class="message">
       <p class="message-author">{{ message.authorId }}</p>
@@ -15,7 +12,7 @@
       }
       <p class="message-content">{{ message.message }}</p>
       <div class="message-footer">
-        <p class="message-timestamp">{{ message.timestamp ?? "--:--" }}</p>
+        <p class="message-timestamp">{{ (message.timestamp | date:'dd.MM.yyyy HH:mm') ?? "--:--" }}</p>
         @if (user()?.displayName === message.authorId) {
         <div class="message-state">
           @switch (message.state) { @case ('send') {
