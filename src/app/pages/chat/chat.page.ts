@@ -51,8 +51,9 @@ export class ChatPage {
         chatId,
         message: this.message(),
         authorId: this.authService.user()?.displayName,
+        timestamp: new Date()
       });
-    } catch (error) {}
+    } catch (error) { }
     this.message.set('');
   }
 
