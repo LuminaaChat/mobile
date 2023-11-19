@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-chat-message-list-item',
@@ -7,6 +7,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./chat-message-list-item.component.scss'],
   imports: [CommonModule],
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ChatMessageListItemComponent {
   @Input()
