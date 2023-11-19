@@ -9,12 +9,12 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
-  ElementRef,
   inject,
   Input,
-  OnInit,
-  ViewChild,
+  signal,
+  WritableSignal,
 } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   templateUrl: './chat.page.html',
@@ -25,33 +25,31 @@ import {
     ChatMessageListComponent,
     ButtonComponent,
     InputFieldComponent,
+    FormsModule,
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ChatPage implements OnInit {
-  @ViewChild('msgbox', { static: true })
-  msgBoxElRef?: ElementRef<HTMLInputElement>;
-  msgBox?: HTMLInputElement;
-
+export class ChatPage {
   private readonly chatService = inject(ChatService);
   private readonly authService = inject(AuthService);
 
   @Input() chatId!: string;
 
-  ngOnInit(): void {
-    this.msgBox = this.msgBoxElRef?.nativeElement;
-  }
+  message: WritableSignal<string> = signal('');
 
   chat = computed(() =>
     this.chatService.chats().find((chat) => chat.id === this.chatId)
   );
 
-  send(chatId: string) {
-    console.log(`sending message ${this.msgBox?.value}`);
-
-    this.chatService.sendMessageByChatId({
-      chatId,
-      message: this.msgBox?.value,
-      authorId: this.authService.user()?.displayName,
-    });
+  send($event: Event, chatId: string) {
+    $event.preventDefault();
+    try {
+      this.chatService.sendMessageByChatId({
+        chatId,
+        message: this.message(),
+        authorId: this.authService.user()?.displayName,
+      });
+    } catch (error) {}
+    this.message.set('');
   }
 }

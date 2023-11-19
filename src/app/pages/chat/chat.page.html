@@ -1,9 +1,23 @@
 <div class="relative h-full p-2">
   <app-chat-message-list [chat]="chat()"></app-chat-message-list>
-  <div class="flex flex-row justify-center absolute bottom-2 left-0 right-0 gap-2 w-full px-2">
-    <input placeholder="Nachricht" type="text" id="chatinput" class="input flex-grow" #msgbox />
-    <button (click)="send(chat()?.id || '')" class="btn-primary">
+  <form
+    (submit)="send($event,chat()?.id || '')"
+    class="flex flex-row justify-center absolute bottom-2 left-0 right-0 gap-2 w-full px-2"
+  >
+    <input
+      name="message"
+      [ngModel]="message()"
+      (ngModelChange)="message.set($event)"
+      placeholder="Nachricht"
+      type="text"
+      class="input flex-grow"
+    />
+    <button
+      type="submit"
+      [disabled]="!(message())"
+      class="btn-primary disabled:opacity-40"
+    >
       <span class="material-icons">send</span>
     </button>
-  </div>
+  </form>
 </div>
