@@ -22,28 +22,28 @@ export class ComponentPage {
     'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis minima explicabo atque, doloremque, sapiente assumenda earum eos fugit suscipit qui eius voluptatem nam quaerat dolores amet placeat dolorum. Inventore, dolorem! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis minima explicabo atque, doloremque, sapiente assumenda earum eos fugit suscipit qui eius voluptatem nam quaerat dolores amet placeat dolorum. Inventore, dolorem! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis minima explicabo atque, doloremque, sapiente assumenda earum eos fugit suscipit qui eius voluptatem nam quaerat dolores amet placeat dolorum. Inventore, dolorem!';
 
   shortMessageEntityOther = new MessageEntity({
-    author: 'other',
+    authorId: 'other',
     message: this.shortMessage,
     state: 'send',
   });
   shortMessageEntityMe = new MessageEntity({
-    author: 'me',
+    authorId: 'me',
     message: this.shortMessage,
     state: 'send',
   });
   longMessageEntityOther = new MessageEntity({
-    author: 'other',
+    authorId: 'other',
     message: this.longMessage,
     state: 'send',
   });
   longMessageEntityMe = new MessageEntity({
-    author: 'me',
+    authorId: 'me',
     message: this.longMessage,
     state: 'send',
   });
 
   shortMessageEntityOtherReferred = new MessageEntity({
-    author: 'other',
+    authorId: 'other',
     message: this.shortMessage,
     state: 'send',
     referredMessage: {
@@ -52,7 +52,7 @@ export class ComponentPage {
     },
   });
   shortMessageEntityMeReferred = new MessageEntity({
-    author: 'me',
+    authorId: 'me',
     message: this.shortMessage,
     state: 'send',
     referredMessage: {
@@ -61,7 +61,7 @@ export class ComponentPage {
     },
   });
   longMessageEntityOtherReferred = new MessageEntity({
-    author: 'other',
+    authorId: 'other',
     message: this.longMessage,
     state: 'send',
     referredMessage: {
@@ -70,7 +70,7 @@ export class ComponentPage {
     },
   });
   longMessageEntityMeReferred = new MessageEntity({
-    author: 'me',
+    authorId: 'me',
     message: this.longMessage,
     state: 'send',
     referredMessage: {

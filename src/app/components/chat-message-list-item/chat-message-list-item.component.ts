@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
+import { AuthService } from '../../services/auth/auth.service';
 import { MessageEntity } from '../../shared/entity/message/message.entity';
 
 @Component({
@@ -10,6 +11,10 @@ import { MessageEntity } from '../../shared/entity/message/message.entity';
   standalone: true,
 })
 export class ChatMessageListItemComponent {
+  private readonly authService = inject(AuthService);
+
+  user = this.authService.user;
+
   @Input()
   message!: MessageEntity;
 

@@ -14,6 +14,13 @@ export const routes: Routes = [
       import('./pages/login/login.page').then((page) => page.LoginPage),
   },
   {
+    path: 'forgot-password',
+    loadComponent: () =>
+      import('./pages/forgot-password/forgot-password.page').then(
+        (page) => page.ForgotPasswordPage
+      ),
+  },
+  {
     path: 'set-pin',
     loadComponent: () =>
       import('./pages/set-pin/set-pin.page').then((page) => page.SetPinPage),
@@ -34,7 +41,17 @@ export const routes: Routes = [
   {
     path: 'settings',
     loadComponent: () =>
-      import('./pages/home/home.page').then((page) => page.HomePage),
+      import('./pages/settings/settings.page').then(
+        (page) => page.SettingsPage
+      ),
+    canActivate: [isAuthenticated],
+  },
+  {
+    path: 'group/:groupId',
+    loadComponent: () =>
+      import('./pages/group/group.page').then(
+        (page) => page.GroupPage
+      ),
     canActivate: [isAuthenticated],
   },
   {
@@ -44,9 +61,9 @@ export const routes: Routes = [
     canActivate: [isAuthenticated],
   },
   {
-    path: 'chat',
+    path: 'chat/:chatId',
     loadComponent: () =>
-      import('./pages/home/home.page').then((page) => page.HomePage),
+      import('./pages/chat/chat.page').then((page) => page.ChatPage),
     canActivate: [isAuthenticated],
   },
   {
@@ -56,20 +73,15 @@ export const routes: Routes = [
         (page) => page.ComponentPage
       ),
   },
-
   {
     path: '',
-    redirectTo: 'chat',
+    redirectTo: 'home',
     pathMatch: 'full',
   },
-  {
-    path: 'chat',
-    loadComponent: () =>
-      import('./pages/chat/chat.page').then((page) => page.ChatPage),
-  },
+
   {
     path: '**',
-    redirectTo: 'chat',
+    redirectTo: 'start',
     pathMatch: 'full',
   },
 ];

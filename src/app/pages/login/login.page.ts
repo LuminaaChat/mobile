@@ -1,29 +1,24 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import {
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
-import { Router } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+import { Router, RouterModule } from '@angular/router';
 
 import { AuthService } from '../../services/auth/auth.service';
+import { ChatService } from 'src/app/services/chat/chat.service';
 
 @Component({
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, RouterModule],
   standalone: true,
 })
 export class LoginPage {
   private readonly authService = inject(AuthService);
+  private readonly chatService = inject(ChatService);
   private readonly router = inject(Router);
 
-  protected loginFormGroup = new FormGroup({
-    username: new FormControl('', [Validators.required]),
-    password: new FormControl(''),
-  });
+  userName = '';
+  password = '';
 
   protected messages = new Array<string>();
 
@@ -41,7 +36,13 @@ export class LoginPage {
   }
 
   continueLogin() {
-    this.authService.login('', '');
+    const username = (document.getElementById('loginName') as HTMLInputElement).value || Math.floor(Math.random() * 10000).toString()
+    const password = (document.getElementById('loginPassword') as HTMLInputElement).value || ''
+
+    this.authService.login(username, password);
+    if (this.authService.isLoggedIn()) {
+      this.chatService.connectToSocket(this.authService.user()?.displayName || '');
+    }
     this.router.navigate(['/set-pin']);
   }
 }

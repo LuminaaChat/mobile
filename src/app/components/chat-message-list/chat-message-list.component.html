@@ -1,3 +1,6 @@
-@for (msg of chat.messages; track msg) {
-<app-chat-message-list-item [message]="msg"></app-chat-message-list-item>
-} @empty { Empty chat }
+<div class="text-sm font-bold text-white">
+  @for (msg of chat?.messages; track msg) {
+  {{ msg.authorId }}
+  <app-chat-message-list-item [message]="msg"></app-chat-message-list-item>
+  } @empty { Empty chat }
+</div>

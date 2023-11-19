@@ -10,18 +10,6 @@ import { ChatMessageListItemComponent } from '../chat-message-list-item/chat-mes
   imports: [ChatMessageListItemComponent],
 })
 export class ChatMessageListComponent {
-  username = 'Dennis';
-
   @Input()
-  chat: ChatEntity = {
-    id: 'test',
-    participants: ['Dennis', 'Clemens'],
-    messages: [
-      { message: 'hallo', author: 'Dennis' },
-      { message: 'wie gehts?', author: 'Dennis' },
-      { message: 'hallo 2', author: 'Clemens' },
-    ],
-  };
-
-  constructor() {}
+  chat?: ChatEntity;
 }

@@ -1,17 +1,28 @@
-import { UserEntity } from '../shared/entity/user/user.entity';
+import { inject } from '@angular/core';
+import { Router } from '@angular/router';
 
-export const isAuthenticated = (user?: UserEntity) => {
+import { User } from '../../../chatapi';
+import { AuthService } from '../services/auth/auth.service';
+
+export const isAuthenticated = (user?: User) => {
+  const auth = inject(AuthService);
+  const router = inject(Router);
+  if (!auth.isLoggedIn()) {
+    router.navigate(['/start'], { replaceUrl: true });
+    return false;
+  } else {
+    return true;
+  }
+};
+export const isAuthorizedEmplopyee = (user?: User) => {
   return !!user;
 };
-export const isAuthorizedEmplopyee = (user?: UserEntity) => {
+export const isAuthorizedFamilyMember = (user?: User) => {
   return !!user;
 };
-export const isAuthorizedFamilyMember = (user?: UserEntity) => {
+export const isAuthorizedParent = (user?: User) => {
   return !!user;
 };
-export const isAuthorizedParent = (user?: UserEntity) => {
-  return !!user;
-};
-export const isAuthorizedChild = (user?: UserEntity) => {
+export const isAuthorizedChild = (user?: User) => {
   return !!user;
 };

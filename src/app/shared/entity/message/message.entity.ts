@@ -3,16 +3,16 @@ import { ReferredMessageEntity } from './referred-message.entity';
 
 export class MessageEntity {
   chatId?: string;
-  message: string;
+  message?: string;
   state?: MessageStateType;
-  author: string;
+  authorId?: string;
   timestamp?: Date;
   referredMessage?: ReferredMessageEntity;
   constructor(entity: MessageEntity) {
     this.chatId = entity.chatId;
     this.message = entity.message;
     this.state = entity.state;
-    this.author = entity.author;
+    this.authorId = entity.authorId;
     this.timestamp = entity.timestamp;
     this.referredMessage = entity.referredMessage;
   }

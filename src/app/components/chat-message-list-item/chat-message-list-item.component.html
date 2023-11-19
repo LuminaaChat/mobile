@@ -1,4 +1,7 @@
-<div class="message-list-item-container" [ngClass]="message.author">
+<div
+  class="message-list-item-container"
+  [ngClass]="user()?.displayName === message.authorId ? 'me' : 'other'"
+>
   <div class="message-container">
     <div class="message">
       @if (message.referredMessage) {
@@ -10,7 +13,7 @@
       </div>
       }
       <p class="message-content">{{ message.message }}</p>
-      @if (message.author === 'me') {
+      @if (user()?.displayName === message.authorId) {
       <div class="message-state"></div>
       <!-- <span class="material-symbol">check</span> -->
       }

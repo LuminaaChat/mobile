@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -10,9 +10,14 @@ import { Router } from '@angular/router';
 })
 export class PinInputComponent {
   private readonly router: Router = inject(Router);
+  private readonly location: Location = inject(Location);
 
   confirmPin() {
     console.log('verify user pin');
-    this.router.navigate(['/home']);
+    this.router.navigate(['/home'], { replaceUrl: true });
+  }
+
+  back() {
+    this.location.back();
   }
 }

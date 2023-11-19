@@ -1,6 +1,6 @@
 :host {
   --icon-size: 1rem;
-  --avatar-size: 3rem;
+  --avatar-size: 2rem;
   --percentage-avatar: calc(var(--avatar-size) + 4rem);
   --percentage-message: calc(100% - var(--percentage-avatar));
 }
@@ -10,7 +10,7 @@ div.message-list-item-container {
   width: 100%;
   padding: 1rem;
 
-  &.me {
+  &.other {
     grid-template-columns: var(--percentage-avatar) var(--percentage-message);
     grid-template-areas: "avatar message";
 
@@ -29,7 +29,7 @@ div.message-list-item-container {
     }
   }
 
-  &.other {
+  &.me {
     grid-template-columns: var(--percentage-message) var(--percentage-avatar);
     grid-template-areas: "message avatar";
   }
