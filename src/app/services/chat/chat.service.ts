@@ -1,4 +1,4 @@
-import { Injectable, signal, WritableSignal } from '@angular/core';
+import { effect, Injectable, signal, WritableSignal } from '@angular/core';
 import { io, Socket } from 'socket.io-client';
 import { ChatEntity } from 'src/app/shared/entity/chat/chat.entity';
 import { Group } from '../../../../chatapi';
@@ -14,7 +14,6 @@ export enum CHAT_EVENT {
 export class ChatService {
   chats: WritableSignal<Array<ChatEntity>> = signal([]);
   groups: WritableSignal<Array<Group>> = signal([]);
-
   private socket: Socket;
 
   constructor() {
@@ -25,7 +24,6 @@ export class ChatService {
     this.socket.auth = { username };
     this.socket.connect();
     this.subscribeToMyChats();
-    this.getMyChatList();
   }
 
   getMyGroupList() {
@@ -45,6 +43,7 @@ export class ChatService {
       },
     ] as Group[];
     this.groups.set(ret);
+    this.getMyChatList()
   }
 
   getMyChatList() {
