@@ -1,0 +1,7 @@
+{
+  "name": "LuminaaChatMobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

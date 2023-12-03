@@ -1,8 +1,0 @@
-<section class="w-full h-full flex flex-col gap-8">
-  <app-sub-header title="Gruppe: {{groupId}}"></app-sub-header>
-  <app-group-chat-list
-    (chatItemSelected)="goToChatWithId($event)"
-    title="Letzte Chats"
-    [chats]="group()?.groupChats"
-  ></app-group-chat-list>
-</section>
