@@ -45,24 +45,24 @@
   <ion-card>
     <ion-card-content>
       <ion-list>
-        <ion-item button>
+        <ion-item button routerLink="imprint">
           <ion-label>
             <h2>Imprint</h2>
             <p>Subtitle</p>
           </ion-label>
         </ion-item>
-        <ion-item button>
+        <ion-item [routerLink]="'privacy'">
           <ion-label>
             <h2>Privacy</h2>
             <p>Subtitle</p></ion-label>
         </ion-item>
-        <ion-item button>
+        <ion-item [routerLink]="'terms'">
           <ion-label>
             <h2>Terms</h2>
             <p>Subtitle</p>
           </ion-label>
         </ion-item>
-        <ion-item lines="none" button>
+        <ion-item lines="none" [routerLink]="'foos'">
           <ion-label>
             <h2>FOOS</h2>
             <p>Subtitle</p>

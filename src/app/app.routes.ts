@@ -3,13 +3,8 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'folder/inbox',
+    redirectTo: 'employees',
     pathMatch: 'full',
-  },
-  {
-    path: 'folder/:id',
-    loadComponent: () =>
-      import('./folder/folder.page').then((m) => m.FolderPage),
   },
   {
     path: 'login',
@@ -21,7 +16,7 @@ export const routes: Routes = [
   },
   {
     path: 'config',
-    loadComponent: () => import('./pages/config/config.page').then(m => m.ConfigPage)
+    loadChildren: () => import('./pages/config/config.routes').then(m => m.CONFIG_ROUTES)
   },
   {
     path: 'admin',

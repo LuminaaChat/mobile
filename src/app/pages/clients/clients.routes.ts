@@ -6,22 +6,14 @@ export const CLIENTS_ROUTES: Routes = [{
   component: ClientsPage,
   providers: [],
   children: [
-    // {
-    //   path: '',
-    //   pathMatch: 'full',
-    //   redirectTo: 'flight-search'
-    // },
-    // {
-    //   path: 'flight-search',
-    //   component: FlightSearchComponent
-    // },
-    // {
-    //   path: 'passenger-search',
-    //   component: PassengerSearchComponent
-    // },
-    // {
-    //   path: 'flight-edit/:id',
-    //   component: FlightEditComponent
-    // }
+    {
+      path: '',
+      pathMatch: 'full',
+      redirectTo: 'overview'
+    },
+    {
+      path: 'overview',
+      loadComponent: () => import('./overview/overview.page').then( m => m.OverviewPage)
+    },
   ]
 }];

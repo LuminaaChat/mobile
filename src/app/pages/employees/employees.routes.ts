@@ -6,15 +6,15 @@ export const EMPLOYEES_ROUTES: Routes = [{
   component: EmployeesPage,
   providers: [],
   children: [
-    // {
-    //   path: '',
-    //   pathMatch: 'full',
-    //   redirectTo: 'flight-search'
-    // },
-    // {
-    //   path: 'flight-search',
-    //   component: FlightSearchComponent
-    // },
+    {
+      path: '',
+      pathMatch: 'full',
+      redirectTo: 'overview'
+    },
+    {
+      path: 'overview',
+      loadComponent: () => import('./overview/overview.page').then( m => m.OverviewPage)
+    },
     // {
     //   path: 'passenger-search',
     //   component: PassengerSearchComponent

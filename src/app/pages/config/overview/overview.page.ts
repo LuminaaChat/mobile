@@ -2,20 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
+import {Router, RouterOutlet} from "@angular/router";
 import {addIcons} from "ionicons";
-import {
-  cog, cogOutline, exitOutline,
-} from "ionicons/icons";
-import {Router, RouterLink} from "@angular/router";
+import {cog, cogOutline, exitOutline} from "ionicons/icons";
 
 @Component({
-  selector: 'app-config',
-  templateUrl: './config.page.html',
-  styleUrls: ['./config.page.scss'],
+  selector: 'app-overview',
+  templateUrl: './overview.page.html',
+  styleUrls: ['./overview.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, RouterLink]
+  imports: [IonicModule, CommonModule, FormsModule, RouterOutlet]
 })
-export class ConfigPage implements OnInit {
+export class OverviewPage implements OnInit {
+
   constructor(private router: Router) {
     addIcons({
       exitOutline,
@@ -25,7 +24,7 @@ export class ConfigPage implements OnInit {
   }
 
   async navigate(path: string) {
-    await this.router.navigate([`./${path}`]);
+    await this.router.navigate([`/${path}`]);
   }
 
   ngOnInit() {
